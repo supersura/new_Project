@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator</title>
+    <style>
+        /* Reset and global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif; /* Modern font */
+        }
+
+        body {
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5); /* Smooth gradient */
+            background-size: 400% 400%;
+            animation: backgroundTransition 10s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Background animation */
+        @keyframes backgroundTransition {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Main container */
+        .Father {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Card-style box */
+        .Son {
+            width: 100%;
+            max-width: 350px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Modern shadow effect */
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            text-align: center;
+        }
+
+        .Son:hover {
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3); /* Hover shadow effect */
+            transform: scale(1.05); /* Subtle zoom effect */
+        }
+
+        h1 {
+            margin-bottom: 15px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #74ebd5;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #74ebd5;
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ACB6E5;
+        }
+
+        h2 {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .Son {
+                width: 90%;
+                max-width: 300px;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            input[type="submit"] {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .Son {
+                width: 95%;
+                max-width: 280px;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            input[type="text"] {
+                padding: 8px;
+                font-size: 14px;
+            }
+
+            input[type="submit"] {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="Father">
+        <div class="Son">
+            <h1>Calculate %</h1>
+            <label for="sub1">Enter Total Marks:</label>
+            <input type="text" placeholder="Total Marks" id="sub1">
+            <label for="sub2">Enter Total Subjects:</label>
+            <input type="text" placeholder="Total Subjects" id="sub2">
+            <input type="submit" value="Calculate" id="btn" onclick="percent()">
+            <h2 id="result">Percent</h2>
+        </div>
+    </div>
+
+    <script>
+
+        function percent(){
+            let a = parseInt(document.getElementById("sub1").value);
+            let b = parseInt(document.getElementById("sub2").value);
+
+            if((!isNaN(a)) && (!isNaN(b)) && b!=0){
+            let c = a/b;
+            document.getElementById("result").innerHTML="Percent = " +c+ " %";
+
+            }
+            else{
+                document.getElementById("result").innerHTML="Not a valid Number !";
+            }
+        }
+
+    </script>
+</body>
+
+</html>
